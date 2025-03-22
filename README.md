@@ -21,7 +21,7 @@ In this task, you will launch a new Windows-based virtual machine (EC2 instance)
 |------------|------------|
 | `username` | `password` |
 
-2. From the AWS Console homepage, navigate to **EC2** by typing "EC2" in the search bar. 
+2. From the AWS Console homepage, navigate to **EC2** by typing `EC2` in the search bar. 
 4. Navigate to EC2 > Instances > Click Launch instance.
 
 Name and tags: Enter a name for your instance (e.g., MyWindowsInstance).
