@@ -1,8 +1,7 @@
-<div style="display: flex; flex-direction: column; align-items: center; width: 259px; margin: auto;">
+<center>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259">
 
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" style="width: 100%; height: auto;">
-
-  <table style="width: 100%; border-collapse: collapse; text-align: center; background-color: white; border: 1px solid lightgray; margin-top: 10px;">
+  <table style="width: 259px; border-collapse: collapse; text-align: center; background-color: white; border: 1px solid lightgray; margin-top: 10px;">
     <tr>
       <th style="padding: 10px; background-color: white; border: 1px solid lightgray;">Last update</th>
     </tr>
@@ -10,8 +9,8 @@
       <td style="padding: 10px; background-color: white; font-family: monospace; border: 1px solid lightgray;">01.01.2025</td>
     </tr>
   </table>
+</center>
 
-</div>
 
 
 # Lab 01 - Launching Amazon EC2 instance
