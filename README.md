@@ -1,4 +1,5 @@
-# lab 01 - Launching Amazon EC2 instance
+![logo](https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg)
+# Lab 01 - Launching Amazon EC2 instance
 ## Lab introduction
 This hands-on lab introduces you to Amazon EC2 (Elastic Compute Cloud), one of the core services in AWS. You will learn how to launch, configure, connect to, and monitor a Windows-based EC2 instance using essential AWS tools and best practices.
 ## Estimated time: 50 minutes
