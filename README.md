@@ -8,7 +8,7 @@
   </tr>
   <tr>
     <td style="background-color: white; padding: 10px;">
-      <span style="background-color: white;"><code style="background-color: white;">01.01.2025</code></span>
+      <code style="background-color: white; border: none; padding: 0;">01.01.2025</code>
     </td>
   </tr>
 </table>
