@@ -1,17 +1,14 @@
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259" height="107">
-</p>
+</p>  
 
-### Last update: `01.01.2025`  
-### Estimated time: 50 minutes  
+| Last update | 25/03/2025  |
+|-------------|-------------|
 
-# Lab 01 - Launching Amazon EC2 instance
+# Lab 01 - Launching Amazon EC2 instance  
+Amazon EC2 (Elastic Compute Cloud) is a foundational service in AWS that allows you to run virtual machines in the cloud.   
+In this lab, you will learn how to create, configure, and manage a Windows-based EC2 instance using the AWS Management Console.
 
-## Lab introduction
-
-# Lab 01 - Launching Amazon EC2 instance
-## Lab introduction
-This hands-on lab introduces you to Amazon EC2 (Elastic Compute Cloud), one of the core services in AWS. You will learn how to launch, configure, connect to, and monitor a Windows-based EC2 instance using essential AWS tools and best practices.
 ## Estimated time: 50 minutes
 ## Overview
 Task 1: Launching a Windows EC2 instance  
