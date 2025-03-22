@@ -17,9 +17,9 @@ Task 5: Monitoring the instance using Amazon CloudWatch
 In this task, you will launch a new Windows-based virtual machine (EC2 instance) in AWS. This is the foundation for all following tasks.  
 1. Log in to the AWS Management Console - `https://eu-north-1.signin.aws.amazon.com/` using your AWS credentials:
  
-| Username         | Password                               |
-|------------------|----------------------------------------|
-| Resource Group   | `az104-rg4` (if necessary, create new) |
+| Username   | Password   |
+|------------|------------|
+| `username` | `password` |
 
 3.  
 4. Navigate to EC2 > Instances > Click Launch instance.
