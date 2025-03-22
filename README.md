@@ -1,7 +1,7 @@
 <center>
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259">
 
-  <table style="width: 759px; border-collapse: collapse; text-align: center; background-color: white; border: 1px solid lightgray; margin-top: 10px;">
+  <table style="width: 959px; border-collapse: collapse; text-align: center; background-color: white; border: 1px solid lightgray; margin-top: 10px;">
     <tr>
       <th style="padding: 10px; background-color: white; border: 1px solid lightgray;">Last update</th>
     </tr>
