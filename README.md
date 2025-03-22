@@ -1,17 +1,16 @@
-<center>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259">
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259" height="107">
+</p>
 
-  <table style="width: 959px; border-collapse: collapse; text-align: center; background-color: white; border: 1px solid lightgray; margin-top: 10px;">
-    <tr>
-      <th style="padding: 10px; background-color: white; border: 1px solid lightgray;">Last update</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; background-color: white; font-family: monospace; border: 1px solid lightgray;">01.01.2025</td>
-    </tr>
-  </table>
-</center>
+<div align="center">
+| Last update               |
+|:-------------------------:|
+| 01.01.2025              |
+</div>
 
+# Lab 01 - Launching Amazon EC2 instance
 
+## Lab introduction
 
 # Lab 01 - Launching Amazon EC2 instance
 ## Lab introduction
