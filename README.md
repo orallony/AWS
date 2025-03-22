@@ -2,14 +2,12 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259" height="107">
 </p>
 
-<table align="center" width="259" style="border-collapse: collapse; text-align: center;">
+<table style="width: 259px; margin: auto; border-collapse: collapse; text-align: center; background-color: white; border: 1px solid lightgray;">
   <tr>
-    <th style="padding: 10px;">Last update</th>
+    <th style="padding: 10px; background-color: white; border: 1px solid lightgray;">Last update</th>
   </tr>
   <tr>
-    <td style="background-color: white; padding: 10px;">
-      <code style="background-color: white; border: none; padding: 0;">01.01.2025</code>
-    </td>
+    <td style="padding: 10px; background-color: white; font-family: monospace; border: 1px solid lightgray;">01.01.2025</td>
   </tr>
 </table>
 
