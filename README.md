@@ -2,9 +2,14 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259" height="107">
 </p>
 
-| Last update               |
-|:-------------------------:|
-| `01.01.2025`              |
+<table align="center">
+  <tr>
+    <th>Last update</th>
+  </tr>
+  <tr>
+    <td><code>01.01.2025</code></td>
+  </tr>
+</table>
 
 # Lab 01 - Launching Amazon EC2 instance
 ## Lab introduction
