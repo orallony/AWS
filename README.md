@@ -4,8 +4,8 @@
 
 <div align="center">
 | Last update               |
-|------------------------|
-| `01.01.2025`             |
+|:-------------------------:|
+| `01.01.2025`              |
 </div>
 
 # Lab 01 - Launching Amazon EC2 instance
