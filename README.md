@@ -1,3 +1,5 @@
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259" height="107">
+
 ![logo](https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg)
 # Lab 01 - Launching Amazon EC2 instance
 ## Lab introduction
