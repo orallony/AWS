@@ -3,9 +3,9 @@
 </p>
 
 
-| Last update               |
-|:-------------------------:|
-| 01.01.2025              |
+        | Last update               |
+        |:-------------------------:|
+        | 01.01.2025                |
 
 # Lab 01 - Launching Amazon EC2 instance
 
