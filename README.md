@@ -3,7 +3,7 @@
 </p>
 
 **Last update:** `01.01.2025`  
-**Estimated time:** 50 minutes.
+### Estimated time: 50 minutes.
 
 # Lab 01 - Launching Amazon EC2 instance
 
