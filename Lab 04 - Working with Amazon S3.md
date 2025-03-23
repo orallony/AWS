@@ -17,6 +17,7 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
 **Task 2:** Upload and manage files  
 **Task 3:** Set permissions and test access  
 **Task 4:** Enable static website hosting  
+**Task 5:** Enable versioning and test file overwrite recovery  
 
 ---
 
@@ -82,6 +83,23 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
 7. Copy the **Bucket website endpoint** and open it in a browser.
 
 ✅ Your static site is now live on S3!
+
+---
+
+## Task 5: Enable Versioning and Test File Recovery
+
+### S3 versioning allows you to preserve, retrieve, and restore every version of every object stored in your bucket.
+
+1. Go to the **Properties** tab of your S3 bucket.
+2. Scroll to **Bucket Versioning** and click **Edit**.
+3. Select **Enable** and click **Save changes**.
+4. Return to your bucket and upload a file (e.g., `example.txt`).
+5. Upload a new version of the same file (same name).
+6. Go to the **Objects** tab, click on the file, and then click **Versions**.
+7. You will now see both versions listed.
+8. You can download or restore any previous version.
+
+✅ You’ve enabled versioning and tested file version recovery.
 
 ---
 
