@@ -19,8 +19,6 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
 **Task 4:** Enable static website hosting  
 **Task 5:** Enable versioning and test file overwrite recovery  
 
----
-
 ## Task 1: Create an S3 Bucket
 
 ### In this task, you’ll create a new S3 bucket to store files.
@@ -34,10 +32,6 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
    - Leave **Block all public access** checked for now
 5. Scroll down and click **Create bucket**.
 
-✅ Your new bucket is now ready to use.
-
----
-
 ## Task 2: Upload and Manage Files
 
 ### Now you’ll upload a file to your bucket and view it.
@@ -47,10 +41,6 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
 3. Drag and drop a file (e.g., image, text, PDF) or use **Add files** to choose one.
 4. Click **Upload** at the bottom of the page.
 5. After the upload finishes, click on the file name to view details.
-
-✅ You can now see file metadata and access options.
-
----
 
 ## Task 3: Set Permissions and Test Access
 
@@ -63,10 +53,6 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
 5. Save changes.
 6. Go back to the **Properties** tab and copy the **Object URL**.
 7. Paste the URL into a new browser tab to verify public access.
-
-✅ If the file loads in the browser, permissions are working correctly.
-
----
 
 ## Task 4: Enable Static Website Hosting
 
@@ -82,10 +68,6 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
 6. Make both files public using the same method as in Task 3.
 7. Copy the **Bucket website endpoint** and open it in a browser.
 
-✅ Your static site is now live on S3!
-
----
-
 ## Task 5: Enable Versioning and Test File Recovery
 
 ### S3 versioning allows you to preserve, retrieve, and restore every version of every object stored in your bucket.
@@ -98,10 +80,6 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
 6. Go to the **Objects** tab, click on the file, and then click **Versions**.
 7. You will now see both versions listed.
 8. You can download or restore any previous version.
-
-✅ You’ve enabled versioning and tested file version recovery.
-
----
 
 ## ✅ End of Lab
 
