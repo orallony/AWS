@@ -11,11 +11,15 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 
 ## Estimated time: 50 minutes
 ## Overview
-Task 1: Launching a Windows EC2 instance  
-Task 2: Connecting to the instance via Remote Desktop (RDP)  
-Task 3: Configuring Security Group rules  
-Task 4: Allocating and assigning an Elastic IP  
-Task 5: Monitoring the instance using Amazon CloudWatch
+**Task 1:** Launching a Windows EC2 instance
+  
+**Task 2:** Connecting to the instance via Remote Desktop (RDP)
+  
+**Task 3:** Configuring Security Group rules 
+ 
+**Task 4:** Allocating and assigning an Elastic IP 
+ 
+**Task 5:** Monitoring the instance using Amazon CloudWatch
 
 ## Task 1: Launching a Windows EC2 instance 
 
@@ -27,10 +31,15 @@ Task 5: Monitoring the instance using Amazon CloudWatch
 | `username` | `password` |
 
 2. From the AWS Console homepage, navigate to **EC2** by typing `EC2` in the search bar.
-3. Click **Launch instance** to begin the process of creating a virtual machine.  
+   
+3. Click **Launch instance** to begin the process of creating a virtual machine.
+   
 4. In the **Name and tags** section, enter a name for your instance: `MyWindowsInstance`.
+  
 5. Under **Application and OS Images (AMI)**, select **Microsoft Windows Server 2019 Base** as the image.
+
 6. For Instance type, select **t2.micro**. This instance type includes 1 vCPU and 1 GiB of memory.
+
 7. Under **Key pair (login)**, click **Create new key pair**
      
 | Setting                  | Value      |
@@ -41,9 +50,13 @@ Task 5: Monitoring the instance using Amazon CloudWatch
 | Key pair type            | **RSA**        |
 
 8. In **Network settings**, keep the default VPC and subnet.
+
    Make sure **Auto-assign public IP** is enabled so your instance can be reached from the internet.
+
 9. Under **Firewall (security groups)**, click **Create security group**.
+
 10. Under **Name** type `ec2lab-sg`.
+
 11. Add one inbound rule: 🟢
 
 | Setting                  | Value      |
@@ -56,6 +69,7 @@ Task 5: Monitoring the instance using Amazon CloudWatch
     - 30 GiB
     - gp2 (General Purpose SSD)
     - Delete on termination: enabled
+
 13. Click **Launch Instance**.
 
 ## Task 2: Connect to the Windows EC2 Instance  
@@ -63,40 +77,59 @@ Task 5: Monitoring the instance using Amazon CloudWatch
 #### Now that your EC2 instance is running, you will connect to it using Remote Desktop Protocol (RDP), just like logging into a computer at work or school.
 
 1. On the left menu, click **Instances**.
+
 2. Find your instance in the list (look for the name `MyWindowsInstance`).
+
 3. Wait until the instance state says **Running** and the status check shows **2/2 checks passed**. This means the instance is healthy and ready.
+
 4. Select your instance by checking the box next to it.
+
 5. Click the **Connect** button at the top.
+
 6. In the pop-up, go to the **RDP Client** tab.
+
 7. Click **Get Password**.
-   - If the button is grayed out, wait a few more minutes — it can take up to 4 minutes after launch to be available.
+>**Note:** If the button is grayed out, wait a few more minutes — it can take up to 4 minutes after launch to be available.
+
 8. Upload the `.pem` key file that you downloaded earlier.
+
 9. Click **Decrypt Password**. Copy the resulting password — you will need it to log in.
+
 10. Copy the **Public IPv4 address** shown on the screen — this is the address you will connect to.
+
 11. Open the Remote Desktop Connection program on your computer:
     - On **Windows**: open the Start Menu, search for `Remote Desktop Connection`, and open it.
     - On **Mac**: open the Microsoft Remote Desktop app (download it from the App Store if you don’t have it).
+
 12. Paste the **Public IPv4 address** in the Computer field and click **Connect**.
+
 13. When prompted, enter:
     - **Username**: `Administrator`
     - **Password**: (paste the one you decrypted)
 14. Accept the certificate warning and continue.
+
 
 ## Task 3: Configure Security Group Rules  
 
 #### Security Groups are used in AWS to control which types of traffic can reach your instance. Think of them as the cloud version of a firewall.
 
 1. From the EC2 Dashboard, click **Security Groups** on the left menu.
+
 2. Look for the security group named `ec2lab-sg` and click it.
+
 3. Go to the **Inbound rules** tab. These are the rules that define which traffic is allowed in.
+
 4. Click **Edit inbound rules**.
+
 5. You should see the following rule already exists:
    - **Type**: RDP
    - **Port**: 3389
    - **Source**: My IP
+
 6. You can add additional rules if needed:
    - **HTTP**: Allows web traffic (port 80)
    - **HTTPS**: Allows secure web traffic (port 443)
+
 7. Click **Save rules** to apply changes.
 
 This helps control what kinds of connections can access your instance.
@@ -106,12 +139,19 @@ This helps control what kinds of connections can access your instance.
 #### Normally, if you stop and restart your EC2 instance, it will get a new public IP. To avoid this, you can assign an Elastic IP — a permanent public address.
 
 1. On the EC2 Dashboard, scroll to the left menu and click **Elastic IPs**.
+
 2. Click the **Allocate Elastic IP address** button.
+
 3. Leave the default options and click **Allocate**.
+
 4. Select the new IP address from the list.
+
 5. Click **Actions > Associate Elastic IP address**.
+
 6. For **Resource type**, select **Instance**.
+
 7. In the **Instance** dropdown, select your `MyWindowsInstance`.
+
 8. Leave the private IP field as-is and click **Associate**.
 
 Now your instance has a public IP address that will stay the same even after reboots.
@@ -121,13 +161,18 @@ Now your instance has a public IP address that will stay the same even after reb
 #### CloudWatch is a monitoring tool in AWS. It allows you to track how your instance is performing and even set alerts if something unusual happens.
 
 1. Go back to the AWS Console home page and search for **CloudWatch**.
+
 2. In the left menu, click **Metrics**.
+
 3. Click **All metrics > EC2 > Per-Instance Metrics**.
+
 4. Find your instance by ID and click it.
+
 5. You'll see performance metrics such as:
    - **CPUUtilization** – how much the processor is working
    - **NetworkIn/Out** – the amount of network traffic
    - **DiskRead/WriteBytes** – disk input/output activity
+
 6. To set up an alert:
    - Click **Alarms > Create Alarm**
    - Choose a metric like **CPUUtilization**
