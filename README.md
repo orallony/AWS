@@ -45,7 +45,7 @@ In this task, you will launch a new Windows-based virtual machine (EC2 instance)
 10. Under **Name** type `ec2lab-sg`.
 11. Add one inbound rule: 🟢
 
-    | Setting                  | Value      |
+| Setting                  | Value      |
 |:-------------------------|:-----------|
 | Type                     | `RDP` |
 | Port range            | **3389**        |
