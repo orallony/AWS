@@ -32,7 +32,7 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 
 2. From the AWS Console homepage, navigate to **EC2** by typing `EC2` in the search bar.
    
-3. Click **Launch instance** to begin the process of creating a virtual machine.
+3. From the left pane click **Launch instance** to begin the process of creating a virtual machine.
    
 4. In the **Name and tags** section, enter a name for your instance: `MyWindowsInstance`.
   
