@@ -87,19 +87,12 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 
 9. Click **Decrypt Password**. Copy the resulting password — you will need it to log in.
 
-10. Copy the **Public IPv4 address** shown on the screen — this is the address you will connect to.
+10. Click **Download remote desktop file** and than choose **Connect**.
 
-11. Open the Remote Desktop Connection program on your computer:
-    - On **Windows**: open the Start Menu, search for `Remote Desktop Connection`, and open it.
-    - On **Mac**: open the Microsoft Remote Desktop app (download it from the App Store if you don’t have it).
-
-12. Paste the **Public IPv4 address** in the Computer field and click **Connect**.
-
-13. When prompted, enter:
+14. When prompted, enter:
     - **Username**: `Administrator`
     - **Password**: (paste the one you decrypted)
-14. Accept the certificate warning and continue.
-
+15. Accept the certificate warning and continue.
 
 ## Task 3: Configure Security Group Rules  
 
@@ -107,7 +100,7 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 
 1. From the EC2 Dashboard, click **Security Groups** on the left menu.
 
-2. Look for the security group named `ec2lab-sg` and click it.
+2. Look for the security group you created earlier and click it.
 
 3. Go to the **Inbound rules** tab. These are the rules that define which traffic is allowed in.
 
@@ -138,7 +131,7 @@ This helps control what kinds of connections can access your instance.
 
 4. Select the new IP address from the list.
 
-5. Click **Actions > Associate Elastic IP address**.
+5. Click **Associate Elastic IP address**.
 
 6. For **Resource type**, select **Instance**.
 
@@ -158,19 +151,18 @@ Now your instance has a public IP address that will stay the same even after reb
 
 3. Click **All metrics > EC2 > Per-Instance Metrics**.
 
-4. Find your instance by ID and click it.
-
 5. You'll see performance metrics such as:
    - **CPUUtilization** – how much the processor is working
    - **NetworkIn/Out** – the amount of network traffic
    - **DiskRead/WriteBytes** – disk input/output activity
 
 6. To set up an alert:
-   - Click **Alarms > Create Alarm**
-   - Choose a metric like **CPUUtilization**
-   - Set a condition: e.g., greater than **80%** for 5 minutes
+   - Click **Alarms** at the left pane and that click **In alarm**
+   - Click **Create alarm**.
+   - Under **Select metric** click **All metrics > EC2 > Per-Instance Metrics** and than choose a metric like **CPUUtilization**. To finish click **Select metric**. 
+   - Set a condition: e.g., greater than **80** for 5 minutes
    - Click Next
-   - Create a new notification (optional) — for example, send an email
+   - Create a new notification by clicking at **Create new topic** and than type `MyTopic` for the **Name** and your Email address for **Email endpoints that will receive the notification**. To finish click **Create Topic**. 
    - Name your alarm (e.g., `HighCPUAlert`) and click **Create alarm**
 
 This allows you to be notified when your instance is under heavy load.
