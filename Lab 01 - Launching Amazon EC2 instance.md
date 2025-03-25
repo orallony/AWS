@@ -24,11 +24,7 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 ## Task 1: Launching a Windows EC2 instance 
 
 #### In this task, you will launch a new Windows-based virtual machine (EC2 instance) in AWS. This is the foundation for all following tasks.  
-1. Log in to the AWS Management Console - `https://eu-north-1.signin.aws.amazon.com/` using your AWS credentials:
- 
-| Username   | Password   |
-|------------|------------|
-| `username` | `password` |
+1. Log in to the AWS Management Console - `https://eu-north-1.signin.aws.amazon.com/` using your AWS credentials.
 
 2. From the AWS Console homepage, navigate to **EC2** by typing `EC2` in the search bar.
    
@@ -36,7 +32,7 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
    
 4. In the **Name and tags** section, enter a name for your instance: `MyWindowsInstance`.
   
-5. Under **Application and OS Images (AMI)**, select **Microsoft Windows Server 2019 Base** as the image.
+5. Under **Application and OS Images (Amazon Machine Image)**, select **Windows** and than **Microsoft Windows Server 2019 Base** as the image.
 
 6. For Instance type, select **t2.micro**. This instance type includes 1 vCPU and 1 GiB of memory.
 
@@ -55,16 +51,6 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 
 9. Under **Firewall (security groups)**, click **Create security group**.
 
-10. Under **Name** type `ec2lab-sg`.
-
-11. Add one inbound rule: 🟢
-
-| Setting                  | Value      |
-|:-------------------------|:-----------|
-| Type                     | `RDP` |
-| Port range            | **3389**        |
-| Source  | **My IP**       |
-
 12. Under **Storage**, leave:
     - 30 GiB
     - gp2 (General Purpose SSD)
@@ -82,13 +68,19 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 
 3. Wait until the instance state says **Running** and the status check shows **2/2 checks passed**. This means the instance is healthy and ready.
 
-4. Select your instance by checking the box next to it.
+5. Select your instance by checking the box next to it.
 
-5. Click the **Connect** button at the top.
+6. Click on the **Security** tab and than choose the Security group name.
 
-6. In the pop-up, go to the **RDP Client** tab.
+7. At the table click on **Edit inbound rules** and than select **Add rule**.
 
-7. Click **Get Password**.
+8. At the **Type** choose **RDP** and for Source choose `My IP`. Leave all the rest as default. To finish click **"Save rules"**. 
+
+9. Click the **Connect** button at the top.
+
+10. In the pop-up, go to the **RDP Client** tab.
+
+11. Click **Get Password**.
 >**Note:** If the button is grayed out, wait a few more minutes — it can take up to 4 minutes after launch to be available.
 
 8. Upload the `.pem` key file that you downloaded earlier.
