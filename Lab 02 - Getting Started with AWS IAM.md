@@ -111,7 +111,7 @@ In this lab, you will learn how to create, configure, and manage IAM users and g
 
 ## ✅ End of Lab
 
-🎉 Congratulations! You’ve completed the AWS IAM Lab.
+#### 🎉 Congratulations! You’ve completed the AWS IAM Lab.
 
 You now know how to:
 - Create IAM users and set passwords
@@ -120,4 +120,4 @@ You now know how to:
 - Use the IAM sign-in portal
 - Test real-world access control scenarios
 
-IAM is one of the most critical parts of AWS for managing access securely. Great job!
+### IAM is one of the most critical parts of AWS for managing access securely. Great job!
