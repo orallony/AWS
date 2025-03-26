@@ -6,7 +6,7 @@
 |-------------|-------------|
 
 # Lab 03 - Getting Started with AWS VPC  
-Amazon VPC (Virtual Private Cloud) is a foundational networking service in AWS that allows you to create isolated virtual networks in the cloud.
+Amazon VPC (Virtual Private Cloud) is a foundational networking service in AWS that allows you to create isolated virtual networks in the cloud.  
 It enables you to control your networking environment, including IP ranges, subnets, route tables, and gateways.  
 In this lab, you will learn how to create a VPC from scratch, define public and private subnets, and configure basic routing and internet access.
 
@@ -23,95 +23,113 @@ In this lab, you will learn how to create a VPC from scratch, define public and 
 
 ## Task 1: Create a Custom VPC
 
-### In this task, you will create a custom VPC with your own IP address range.
+### In this task, you will create a new Virtual Private Cloud (VPC) — a private network inside AWS — and define its IP range.
 
-1. Go to the [AWS Management Console](https://console.aws.amazon.com/), log in, and search for **VPC** in the search bar.
-2. In the left menu, click **Your VPCs**.
-3. Click **Create VPC**.
-4. Choose **VPC only** option.
-5. Enter the following:
+1. Log in to the [AWS Management Console](https://console.aws.amazon.com/).
+2. In the top search bar, type `VPC` and select the **VPC** service.
+3. In the left menu, click **Your VPCs**.
+4. Click the **Create VPC** button.
+5. Choose **VPC only** (not the wizard).
+6. Set the following configuration:
    - **Name tag**: `LabVPC`
-   - **IPv4 CIDR block**: `10.0.0.0/16`
-   - Leave IPv6 CIDR and other settings as default.
-6. Click **Create VPC**.
+   - **IPv4 CIDR**: `10.0.0.0/16` (this defines the overall IP range)
+   - Leave all other options at their default values.
+7. Click **Create VPC**.
+
+✅ You now have a custom virtual network ready.
 
 ---
 
 ## Task 2: Create Public and Private Subnets
 
-### Subnets divide your VPC into smaller IP ranges. Here you'll create one public and one private subnet.
+### Subnets divide a VPC into smaller networks. Here, you'll create one public and one private subnet in different Availability Zones.
 
-1. In the VPC Dashboard, click **Subnets > Create subnet**.
-2. Select the VPC you created: `LabVPC`.
-3. Create two subnets:
-   - **Public Subnet**:
-     - Name: `PublicSubnet`
-     - Availability Zone: choose one (e.g. us-east-1a)
-     - CIDR block: `10.0.1.0/24`
-   - **Private Subnet**:
-     - Name: `PrivateSubnet`
-     - Availability Zone: choose one (e.g. us-east-1b)
-     - CIDR block: `10.0.2.0/24`
-4. Click **Create subnet**.
+1. In the VPC Dashboard, go to the **Subnets** section and click **Create subnet**.
+2. Choose the `LabVPC` from the drop-down menu.
+3. Create two subnets with the following details:
+
+**Public Subnet:**  
+- **Subnet name**: `PublicSubnet`  
+- **Availability Zone**: `No preference`  
+- **IPv4 subnet CIDR block**: `10.0.1.0/24`  
+
+**Private Subnet:**  
+- **Subnet name**: `PrivateSubnet`  
+- **Availability Zone**: `No preference`  
+- **IPv4 subnet CIDR block**: `10.0.2.0/24`
+
+4. Click **Create subnet** after filling in both subnets.
+
+✅ You now have two separate subnets: one for public-facing resources and one for private ones.
 
 ---
 
 ## Task 3: Create and Attach an Internet Gateway
 
-### An Internet Gateway enables instances in your VPC to connect to the internet.
+### An Internet Gateway allows resources in your VPC to access the internet.
 
-1. In the VPC Dashboard, click **Internet Gateways**.
+1. In the left menu, click **Internet Gateways**.
 2. Click **Create internet gateway**.
-3. Name it: `LabIGW`, then click **Create**.
-4. Select it, then click **Actions > Attach to VPC**.
-5. Choose your `LabVPC` and click **Attach internet gateway**.
+3. Under **Name tag** Enter the name `LabIGW`, then click **Create internet gateway**.
+4. Click **Actions** and than **Attach to VPC**.
+5. Choose `LabVPC` and click **Attach internet gateway**.
+
+✅ Your VPC is now ready to route traffic to and from the internet — once routing is set up.
 
 ---
 
 ## Task 4: Configure Route Tables
 
-### You will now configure routing so only the public subnet has access to the internet.
+### Routing controls where network traffic goes. You'll now set up a route that allows the public subnet to reach the internet.
 
-1. In the VPC Dashboard, click **Route Tables**.
-2. You’ll see a route table automatically created with your VPC. Rename it to `PublicRouteTable`.
-3. Select it and go to the **Routes** tab.
-4. Click **Edit routes > Add route**:
-   - Destination: `0.0.0.0/0`
-   - Target: your Internet Gateway (e.g., `igw-xxxxx`)
-5. Click **Save routes**.
-6. Now go to the **Subnet associations** tab > **Edit subnet associations**.
-7. Select only the `PublicSubnet` and save.
+1. In the left menu, click **Route Tables**.
+2. Find the route table automatically created with `LabVPC` (you can identify it by the VPC column).
+3. Rename it to `PublicRouteTable` for clarity by clicking at the pencil icon.
+4. Select it and go to the **Routes** tab.
+5. Click **Edit routes > Add route**:
+   - **Destination**: `0.0.0.0/0` (this represents the internet)
+   - **Target**: **Internet Gateway** and for the next box choose your internet gateway you created earlier. 
+6. Click **Save Changes**.
+7. Now go to the **Subnet associations** tab > Click **Edit subnet associations**.
+8. Select only the `PublicSubnet`, then click **Save associations**.
 
-The private subnet will remain without internet access for now.
+✅ Only your public subnet will have internet access. The private subnet will remain isolated.
 
 ---
 
 ## Task 5: Launch EC2 Instance in Public Subnet
 
-### Finally, you'll launch a test EC2 instance in the public subnet to verify connectivity.
+### To test your setup, you'll launch an EC2 instance in the public subnet and check if it can access the internet.
 
-1. Go to the **EC2** service in the AWS Console.
+1. In the top search bar, type `EC2` and go to the EC2 Dashboard.
 2. Click **Launch instance**.
-3. Use the following settings:
-   - Name: `VPC-Test-Instance`
-   - AMI: `Amazon Linux 2023` (or any available Amazon Linux)
-   - Instance type: `t2.micro`
-   - Key pair: choose or create one
-   - Network: choose `LabVPC`
-   - Subnet: choose `PublicSubnet`
-   - Auto-assign public IP: **Enable**
-   - Security group: create one that allows SSH from your IP
-4. Launch the instance.
-5. After it runs, connect via SSH and run:
-   ```bash
-   ping google.com
-   ```
-   If you get replies, your setup is correct!
+3. Fill out the instance details:
+   - **Name**: `VPC-Test-Instance`
+   - **Application and OS Images (Amazon Machine Image)**: Choose **Amazon Linux 2023 AMI**
+   - **Instance type**: `t2.micro`
+   - **Key pair**: click **Create new key pair**
+     
+| Setting                  | Value      |
+|:-------------------------|:-----------|
+| Name                     | `vpclab-key` |
+| Key pair type            | **RSA**        |
+| Private key file format  | **.pem**       |
+
+And to finish click **Create key pair**. 
+
+   - **Network**: Choose `LabVPC`
+   - **Subnet**: Choose `PublicSubnet`
+   - **Auto-assign public IP**: Make sure this is **enabled**
+   - **Security group name**: type `vpc-scg`.
+4. Click **Launch instance**.
+5. After the instance is running, click on the EC2 new instance and select **connect**.
 
 ---
 
 ## ✅ End of Lab
 
-🎉 Congratulations! You’ve successfully created your first custom VPC with subnets, routing, and internet access. 
+🎉 Congratulations! You’ve successfully created your first custom VPC with subnets, internet access, and a working EC2 instance.
 
-You now understand the basics of networking in AWS and how to isolate resources using subnets and route tables.
+You now understand the fundamentals of AWS networking — how to isolate resources, connect them securely, and route traffic appropriately.
+
+Great work!
