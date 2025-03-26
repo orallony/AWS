@@ -6,7 +6,7 @@
 |-------------|-------------|
 
 # Lab 04 - Getting Started with Amazon S3  
-Amazon S3 (Simple Storage Service) is a foundational object storage service in AWS that allows you to store and retrieve any amount of data, at any time, from anywhere on the web.
+Amazon S3 (Simple Storage Service) is a foundational object storage service in AWS that allows you to store and retrieve any amount of data, at any time, from anywhere on the web.  
 It is designed for durability, availability, and scalability, and is commonly used for backup, data archiving, hosting static websites, and more.  
 In this lab, you will learn how to create and configure an S3 bucket, upload and manage files, set permissions, and enable static website hosting.
 
@@ -19,67 +19,81 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
 **Task 4:** Enable static website hosting  
 **Task 5:** Enable versioning and test file overwrite recovery  
 
+---
+
 ## Task 1: Create an S3 Bucket
 
-### In this task, you’ll create a new S3 bucket to store files.
+### In this task, you’ll create a new S3 bucket to store files. Buckets in S3 are like folders where you organize your files in the cloud.
 
-1. Go to the [AWS Management Console](https://console.aws.amazon.com/) and log in.
-2. In the search bar at the top, type `S3` and click on **S3**.
+1. Go to the [AWS Management Console](https://console.aws.amazon.com/) and sign in with your credentials.
+2. In the top search bar, type `S3` and select the **S3** service.
 3. Click the **Create bucket** button.
-4. Use the following settings:
-   - **Bucket name**: must be globally unique, e.g., `jb-lab-s3-demo-[yourname]`
-   - **Region**: choose your closest AWS region (e.g., us-east-1)
-   - Leave **Block all public access** checked for now
-5. Scroll down and click **Create bucket**.
+4. Configure the bucket with the following settings:
+   - **Bucket name**: Must be globally unique (e.g., `jb-lab-s3-demo-[yourname]`)
+   - Leave **Block all public access** checked for now.
+5. Scroll to the bottom and click **Create bucket**.
+
+✅ You’ve now created a new S3 bucket that will be used in the next steps.
+
+---
 
 ## Task 2: Upload and Manage Files
 
-### Now you’ll upload a file to your bucket and view it.
+### In this task, you’ll upload a file to your S3 bucket and explore how objects are stored and viewed.
 
-1. Click on your new bucket’s name in the S3 Dashboard.
+1. From the S3 Dashboard, click on the name of the bucket you created.
 2. Click the **Upload** button.
-3. Drag and drop a file (e.g., image, text, PDF) or use **Add files** to choose one.
-4. Click **Upload** at the bottom of the page.
-5. After the upload finishes, click on the file name to view details.
+3. Use **Add files** to choose a file from your computer (e.g., `.txt`, `.jpg`, `.pdf`).
+4. Click **Upload** at the bottom of the page. Leave all other options at their default.
+5. When the upload is complete, click on the file name to open its object details.
+
+✅ You have now stored your first object in Amazon S3.
+
+---
 
 ## Task 3: Set Permissions and Test Access
 
-### You will now make the file publicly accessible.
+### By default, files in S3 are private. In this task, you’ll update permissions so a file is publicly accessible by URL.
 
-1. While viewing the file in your bucket, go to the **Permissions** tab.
-2. Scroll down to **Object Ownership** and ensure it’s set to **ACLs enabled** (if needed, adjust bucket settings).
-3. Click **Edit** under **Access control list (ACL)**.
-4. Under **Everyone (public access)**, check **Read**.
-5. Save changes.
-6. Go back to the **Properties** tab and copy the **Object URL**.
-7. Paste the URL into a new browser tab to verify public access.
+1. Inside your bucket, click on the name of the file you uploaded.
+2. Click on the **Permissions** tab.
+3. Scroll down to the **Access control list (ACL)** section and click **Edit**.
+4. Under **Everyone (public access)**, check the box for **Read**.
+5. Confirm and click **Save changes**.
+6. Go to the **Properties** tab and copy the **Object URL**.
+7. Open a new browser tab and paste the URL. If the file opens in the browser, your public access settings are working.
 
 ## Task 4: Enable Static Website Hosting
 
-### S3 can host static websites (HTML/CSS/JS) without a web server.
+### Amazon S3 can host static websites (like HTML pages) without the need for a traditional web server.
 
-1. Go to the **Properties** tab of your bucket.
-2. Scroll to **Static website hosting** and click **Edit**.
-3. Enable it and set:
+1. Go back to your bucket and click on the **Properties** tab.
+2. Scroll down to the **Static website hosting** section and click **Edit**.
+3. Set the following:
+   - Enable the feature
    - **Index document**: `index.html`
    - (Optional) **Error document**: `error.html`
-4. Save changes.
-5. Upload `index.html` (and optionally `error.html`) to the root of your bucket.
-6. Make both files public using the same method as in Task 3.
-7. Copy the **Bucket website endpoint** and open it in a browser.
+4. Click **Save changes**.
+5. Now go to the **Objects** tab and click **Upload**.
+6. Upload `index.html` file (you can download it from Lab 04 folder at the repository) and click **Upload** to finish.
+7. Make these files public by following the same steps from Task 3.
+8. Clicl **Close** and go back to **Properties** and copy the **Bucket website endpoint** at the end of the page.
+9. Open the endpoint URL in a browser — you should see your website!
+
 
 ## Task 5: Enable Versioning and Test File Recovery
 
-### S3 versioning allows you to preserve, retrieve, and restore every version of every object stored in your bucket.
+### S3 Versioning allows you to preserve, retrieve, and restore every version of every object stored in a bucket.
 
-1. Go to the **Properties** tab of your S3 bucket.
-2. Scroll to **Bucket Versioning** and click **Edit**.
+1. Go to the **Properties** tab of your bucket.
+2. Scroll down to **Bucket Versioning** and click **Edit**.
 3. Select **Enable** and click **Save changes**.
-4. Return to your bucket and upload a file (e.g., `example.txt`).
-5. Upload a new version of the same file (same name).
-6. Go to the **Objects** tab, click on the file, and then click **Versions**.
-7. You will now see both versions listed.
-8. You can download or restore any previous version.
+4. Upload a file called `example.txt`.
+5. Then, upload another file with the same name (`example.txt`) but different content. This creates a new version.
+6. Click on the file name, then click on the **Versions** tab.
+7. You’ll see both versions listed — with timestamps and unique version IDs.
+8. You can select a version to download or restore it.
+
 
 ## ✅ End of Lab
 
@@ -87,8 +101,9 @@ In this lab, you will learn how to create and configure an S3 bucket, upload and
 
 You now know how to:
 - Create and configure S3 buckets
-- Upload and manage objects
-- Set permissions for public access
-- Use S3 to host static websites
+- Upload and manage files (objects)
+- Control access using permissions
+- Host a static website directly from S3
+- Use versioning to track and recover changes
 
-Amazon S3 is one of the most versatile and widely-used services in AWS. Great job!
+Amazon S3 is a powerful and flexible tool that’s widely used in the cloud world. Well done!
