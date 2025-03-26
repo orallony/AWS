@@ -10,6 +10,8 @@ Amazon VPC (Virtual Private Cloud) is a foundational networking service in AWS t
 It enables you to control your networking environment, including IP ranges, subnets, route tables, and gateways.  
 In this lab, you will learn how to create a VPC from scratch, define public and private subnets, and configure basic routing and internet access.
 
+![My Image](media/01.png)
+
 ### Estimated time: 60 minutes
 ## Overview
 **Task 1:** Create a custom VPC with CIDR block 10.0.0.0/16  
