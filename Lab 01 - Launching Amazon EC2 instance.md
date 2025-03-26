@@ -172,11 +172,4 @@ This allows you to be notified when your instance is under heavy load.
 
 #### 🎉 Congratulations! You’ve completed the AWS EC2 Lab.
 
-You now know how to:
-- Launch a Windows EC2 instance from scratch
-- Connect to it using Remote Desktop
-- Configure network access through Security Groups
-- Assign a fixed public IP address
-- Monitor your instance's performance with CloudWatch
-
-### You’ve just built and managed your first cloud-based Windows server!
+You’ve just built and managed your first cloud-based Windows server!
