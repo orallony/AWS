@@ -51,12 +51,12 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 
 9. Under **Firewall (security groups)**, click **Create security group**.
 
-12. Under **Storage**, leave:
+10. Under **Storage**, leave:
     - 30 GiB
     - gp2 (General Purpose SSD)
     - Delete on termination: enabled
 
-13. Click **Launch Instance**.
+11. Click **Launch Instance**.
 
 ## Task 2: Connect to the Windows EC2 Instance  
 
@@ -68,26 +68,27 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 
 3. Wait until the instance state says **Running** and the status check shows **2/2 checks passed**. This means the instance is healthy and ready.
 
-5. Select your instance by checking the box next to it.
+4. Select your instance by checking the box next to it.
 
-6. Click on the **Security** tab and than choose the Security group name.
+5. Click on the **Security** tab and than choose the Security group name.
 
-7. At the table click on **Edit inbound rules** and than select **Add rule**.
+6. At the table click on **Edit inbound rules** and than select **Add rule**.
 
-8. At the **Type** choose **RDP** and for Source choose `My IP`. Leave all the rest as default. To finish click **"Save rules"**. 
+7. At the **Type** choose **RDP** and for Source choose `My IP`. Leave all the rest as default. To finish click **"Save rules"**. 
 
-9. Click the **Connect** button at the top.
+8. Click the **Connect** button at the top.
 
-10. In the pop-up, go to the **RDP Client** tab.
+9. In the pop-up, go to the **RDP Client** tab.
 
-11. Click **Get Password**.
+10. Click **Get Password**.
+
 >**Note:** If the button is grayed out, wait a few more minutes — it can take up to 4 minutes after launch to be available.
 
-8. Upload the `.pem` key file that you downloaded earlier.
+11. Upload the `.pem` key file that you downloaded earlier.
 
-9. Click **Decrypt Password**. Copy the resulting password — you will need it to log in.
+12. Click **Decrypt Password**. Copy the resulting password — you will need it to log in.
 
-10. Click **Download remote desktop file** and than choose **Connect**.
+13. Click **Download remote desktop file** and than choose **Connect**.
 
 14. When prompted, enter:
     - **Username**: `Administrator`
@@ -151,12 +152,12 @@ Now your instance has a public IP address that will stay the same even after reb
 
 3. Click **All metrics > EC2 > Per-Instance Metrics**.
 
-5. You'll see performance metrics such as:
+4. You'll see performance metrics such as:
    - **CPUUtilization** – how much the processor is working
    - **NetworkIn/Out** – the amount of network traffic
    - **DiskRead/WriteBytes** – disk input/output activity
 
-6. To set up an alert:
+5. To set up an alert:
    - Click **Alarms** at the left pane and that click **In alarm**
    - Click **Create alarm**.
    - Under **Select metric** click **All metrics > EC2 > Per-Instance Metrics** and than choose a metric like **CPUUtilization**. To finish click **Select metric**. 
