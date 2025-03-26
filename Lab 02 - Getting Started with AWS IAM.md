@@ -25,9 +25,7 @@ In this lab, you will learn how to create, configure, and manage IAM users and g
 
 ### In this task, you’ll create a new IAM user in your AWS account. IAM users are identities that represent people (like you or your teammates) who need to access AWS.
 
-1. Open your browser and go to the [AWS Management Console](https://console.aws.amazon.com/).
-
-2. Log in using your root user email and password (this is the main account owner).
+1. Log in to the AWS Management Console - https://eu-north-1.signin.aws.amazon.com/ using your AWS credentials.
 
 3. In the top search bar, type `IAM` and click on **IAM**.
 
