@@ -2,7 +2,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259" height="107">
 </p>  
 
-| Last update | 25/03/2025  |
+| Last update | 26/03/2025  |
 |-------------|-------------|
 
 # Lab 04 - Getting Started with Amazon S3  
