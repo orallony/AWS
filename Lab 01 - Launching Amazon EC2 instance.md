@@ -178,6 +178,4 @@ You now know how to:
 - Assign a fixed public IP address
 - Monitor your instance's performance with CloudWatch
 
-You’ve just built and managed your first cloud-based Windows server!
-
-📌 Tip: Remember to stop or terminate your instance if you’re done — AWS charges for running instances that are not in Free Tier.
+### You’ve just built and managed your first cloud-based Windows server!
