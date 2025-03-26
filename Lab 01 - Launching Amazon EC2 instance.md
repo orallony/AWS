@@ -29,6 +29,8 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 2. From the AWS Console homepage, navigate to **EC2** by typing `EC2` in the search bar.
    
 3. From the left pane click **Launch instance** to begin the process of creating a virtual machine.
+
+![My Image](media/Lab01/01.png)
    
 4. In the **Name and tags** section, enter a name for your instance: `MyWindowsInstance`.
   
@@ -72,6 +74,8 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 
 5. Click on the **Security** tab and than choose the Security group name.
 
+![My Image](media/Lab01/02.png)
+
 6. At the table click on **Edit inbound rules** and than select **Add rule**.
 
 7. At the **Type** choose **RDP** and for Source choose `My IP`. Leave all the rest as default. To finish click **"Save rules"**. 
@@ -93,6 +97,7 @@ In this lab, you will learn how to create, configure, and manage a Windows-based
 14. When prompted, enter:
     - **Username**: `Administrator`
     - **Password**: (paste the one you decrypted)
+    
 15. Accept the certificate warning and continue.
 
 ## Task 3: Configure Security Group Rules  
