@@ -31,24 +31,19 @@ In this lab, you will learn how to create, configure, and manage IAM users and g
 
 4. You’ll be taken to the IAM Dashboard. On the left menu, click **Users**.
 
-5. Click the **Add users** button.
+5. Click the **Create user** button.
 
-6. Under **User name**, type: `lab-student`. This is the name of the new user.
+6. Under **User name**, type: `lab-student`.
 
-7. Under **Select AWS access type**, check the box for **AWS Management Console access**. This allows the user to sign in to the web interface.
+7. Select the checkbox labeled **"Provide user access to the AWS Management Console – optional"**.
 
-8. For **Console password**, select **Custom password** and enter: `LabStudent123!` (or choose another strong password).
+8. Uner **Console password** choose **Custom password** and type: `LabStudent123!`.
 
-9. Uncheck the option **Require password reset** (so the user can log in immediately).
+9. Uncheck the **Users must create a new password at next sign-in - Recommended** and than select **Next**. This is the name of the new user.
 
-10. Click **Next** to move to the permissions step (we’ll assign those later).
+10. Under **Permissions options**, check the box for **Add user to group** and than click **Next**.
 
-11. On the permissions page, click **Next** again to skip adding permissions for now.
-
-12. On the tags page, click **Next**.
-
-13. On the review screen, confirm the details, then click **Create user**.
-
+12. On the review screen, confirm the details, then click **Create user**.
 
 ## Task 2: Create a Group and Attach Permissions  
 
@@ -58,19 +53,19 @@ In this lab, you will learn how to create, configure, and manage IAM users and g
 
 2. Click the orange **Create group** button.
 
-3. For the **Group name**, type: `ReadOnlyGroup`. This group will have read-only access to AWS services.
+3. For the **User group name**, type: `EC2ReadOnlyGroup`. This group will have read-only access to AWS services.
 
-4. On the **Attach permissions policies** screen, use the search bar to find `ReadOnlyAccess`.
+4. On the **Attach permissions policies** screen, use the search bar to find `AmazonEC2ReadOnlyAccess`.
 
-5. Check the box next to **ReadOnlyAccess** — this policy allows users to view AWS resources, but not change or delete anything.
+5. Check the box next to **AmazonEC2ReadOnlyAccess** — This policy allows viewing (but not changing) EC2-related settings and resources.
 
 6. Click **Next** (skip tags).
 
-7. Click **Create group**.
+7. Click **Create user group**.
 
 ## Task 3: Add the User to the Group  
 
-### Now you’ll add the user `lab-student` to the `ReadOnlyGroup`. This means the user will automatically inherit all permissions attached to the group.  
+### Now we will add the user lab-student to the group we just created. This will give them the read-only EC2 permissions.  
 
 1. Go to the **Users** section from the left menu.
 
@@ -80,9 +75,9 @@ In this lab, you will learn how to create, configure, and manage IAM users and g
 
 4. Click the **Add user to groups** button.
 
-5. Check the box next to `ReadOnlyGroup`.
+5. Check the box next to `AmazonEC2ReadOnlyAccess`.
 
-6. Click **Add to groups**.
+6. Click **Add user to group(s)**.
 
 ## Task 4: Sign In as the IAM User
 
@@ -90,14 +85,14 @@ In this lab, you will learn how to create, configure, and manage IAM users and g
 
 1. Return to the **IAM Dashboard** as the root user.
 
-2. On the home screen, look for **IAM users sign-in link**.
+2. On the home screen, look for **Sign-in URL for IAM users in this account** under **AWS Account** box.
 
 3. Click the **Copy link** button and paste the URL into a new browser tab or window.
 
 >**Note:** This URL is unique to your AWS account. It takes you to the IAM login screen.
 
 4. Sign in using the credentials:
-   - **Username**: `lab-student`
+   - **IAM username**: `lab-student`
    - **Password**: `LabStudent123!`
 
 5. You will now be logged in as the IAM user.
@@ -113,10 +108,6 @@ In this lab, you will learn how to create, configure, and manage IAM users and g
 3. Try clicking the **Launch Instance** button.
 
 4. You should receive an error message saying you are not authorized.
-
-5. Go to the **S3** service (use the search bar again).
-
-6. You might be able to see a list of S3 buckets, but you won’t be able to create a new bucket or delete anything.
 
 ## ✅ End of Lab
 
