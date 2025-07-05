@@ -1,3 +1,5 @@
+
+
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/John_bryce_logo.jpg" alt="Logo" width="259" height="107">
 </p>  
@@ -6,175 +8,103 @@
 |-------------|-------------|
 
 # Lab 01 - Launching Amazon EC2 instance  
-Amazon EC2 (Elastic Compute Cloud) is a foundational service in AWS that allows you to run virtual machines in the cloud.   
-In this lab, you will learn how to create, configure, and manage a Windows-based EC2 instance using the AWS Management Console.
+This tutorial is designed for beginners with no prior experience using Amazon EC2. We'll guide you through the steps for creating—we call it launching—your very first EC2 instance using the EC2 console. An instance is essentially a web server in the AWS Cloud. After launching your instance, we'll show you how to find it in the console. Finally, to help you manage costs, we'll show you how to delete—we call it terminate—your instance.
 
 ## Estimated time: 50 minutes
 ## Overview
-**Task 1:** Launching a Windows EC2 instance
-  
-**Task 2:** Connecting to the instance via Remote Desktop (RDP)
-  
-**Task 3:** Configuring Security Group rules 
- 
-**Task 4:** Allocating and assigning an Elastic IP 
- 
-**Task 5:** Monitoring the instance using Amazon CloudWatch
+**Task 1:** Launch your instance
+
+**Task 2:** Find your instance
+
+**Task 3:** View your instance configuration
+
+**Task 4:** Terminate your instance
 
 ## Task 1: Launching a Windows EC2 instance 
 
-#### In this task, you will launch a new Windows-based virtual machine (EC2 instance) in AWS. This is the foundation for all following tasks.  
+#### In this task, you'll take the quickest path to launching your instance by doing only the essentials. We'll use the EC2 launch instance wizard, a web-based form that provides all the fields for configuring and launching your instance. It simplifies the process by providing default values for the instance configuration fields.  
 1. Log in to the AWS Management Console using your AWS credentials.
 
-2. From the AWS Console homepage, navigate to **EC2** by typing `EC2` in the search bar.
-   
-3. From the left pane click **Launch instance** to begin the process of creating a virtual machine.
+2. Open the EC2 launch instance wizard:
 
-![My Image](/media/Lab01/01.png)
-   
-4. In the **Name and tags** section, enter a name for your instance: `MyWindowsInstance`.
-  
-5. Under **Application and OS Images (Amazon Machine Image)**, select **Windows** and than **Microsoft Windows Server 2019 Base** as the image.
+From the EC2 dashboard, choose **Launch instance**.
 
-6. For Instance type, select **t2.micro**. This instance type includes 1 vCPU and 1 GiB of memory.
+The Launch an instance web-based form opens. This is the EC2 launch instance wizard.
 
-7. Under **Key pair (login)**, click **Create new key pair**
-     
-| Setting                  | Value      |
-|:-------------------------|:-----------|
-| Name                     | `ec2lab-key` |
-| Key pair type            | **RSA**        |
-| Private key file format  | **.pem**       |
-| Key pair type            | **RSA**        |
+3. **Name your instance:**
 
-8. In **Network settings**, keep the default VPC and subnet.
+Under **Name and tags**, for **Name**, enter a descriptive name like `My first EC2 instance`.
 
-   Make sure **Auto-assign public IP** is enabled so your instance can be reached from the internet.
+While naming your instance isn't required, it helps identify your instance later.
 
-9. Under **Firewall (security groups)**, click **Create security group**.
+4. **Proceed without a key pair:**
 
-10. Under **Storage**, leave:
-    - 30 GiB
-    - gp2 (General Purpose SSD)
-    - Delete on termination: enabled
+Under **Key pair (login)**, for **Key pair name**, choose **Proceed without a key pair (Not recommended)**.
 
-11. Click **Launch Instance**.
+A key pair can be used for secure login. However, because we won't be logging into the instance in this tutorial, you don't need a key pair for now.
 
-## Task 2: Connect to the Windows EC2 Instance  
+5. **Launch your instance:**
 
-#### Now that your EC2 instance is running, you will connect to it using Remote Desktop Protocol (RDP), just like logging into a computer at work or school.
+In the **Summary** panel on the right, choose **Launch instance**.
 
-1. On the left menu, click **Instances**.
+Amazon EC2 quickly launches your instance using the default settings. A **Success** banner confirms the launch.
 
-2. Find your instance in the list (look for the name `MyWindowsInstance`).
+## Task 2: Find your instance  
 
-3. Wait until the instance state says **Running** and the status check shows **2/2 checks passed**. This means the instance is healthy and ready.
+#### In this task, you'll locate the instance that you just launched in the EC2 console.
 
-4. Select your instance by checking the box next to it.
+1. Open the **Instances page**:
 
-5. Click on the **Security** tab and than choose the Security group name.
+If you're still on the success page, choose **Instances** in the breadcrumb at the top of the screen. You might need to choose the three ellipses first to access it.
 
-![My Image](/media/Lab01/02.png)
+If you've navigated away, choose Instances from the navigation pane.
 
-6. At the table click on **Edit inbound rules** and than select **Add rule**.
+2. **Locate your instance:**
 
-7. At the **Type** choose **RDP** and for Source choose `My IP`. Leave all the rest as default. To finish click **"Save rules"**. 
+In the **Name** column, find your instance by the name you gave it.
 
-8. Click the **Connect** button at the top.
+## Task 3: View your instance configuration  
 
-9. In the pop-up, go to the **RDP Client** tab.
+#### In this task, you'll become familiar with viewing your instance's configuration details.
 
-10. Click **Get Password**.
+1. **Locate the instance ID:**  
+   In the **Instance ID** column, take note of your instance's unique ID. It begins with **i-** followed by 17 alphanumeric characters, for example, **i-01aeed690c9fb5322**.  
+   The instance ID is automatically assigned to your instance when it's launched.
 
->**Note:** If the button is grayed out, wait a few more minutes — it can take up to 4 minutes after launch to be available.
+2. **Open the instance details page:**  
+   In the **Instance ID** column, choose the ID link to open the instance details page where you can review its configuration.
 
-11. Upload the `.pem` key file that you downloaded earlier.
+3. **Explore instance configuration details:**  
+   Take a few minutes to explore the configuration details of your instance. In the next tutorial, we'll dive deeper into the configuration. For now, use this time to familiarize yourself with the instance details page.
 
-12. Click **Decrypt Password**. Copy the resulting password — you will need it to log in.
+   **Tip:** To quickly find a field, press Ctrl+F or command+F on your keyboard.
 
-13. Click **Download remote desktop file** and than choose **Connect**.
+   a. **Instance type:** Can you find the instance type? It's either **t2.micro** or **t3.micro**.  
+   b. **Public IPv4 address:** Can you find the public IPv4 address that was allocated to your instance? It's in a format similar to the following example: **34.242.148.128**.  
+   c. **Instance owner:** Can you identify the owner of this instance? It's you! Your AWS account number is listed under the **Owner** field.  
+   d. **Instance tags:** The name you gave your instance is actually a tag. Can you find your instance tags? Choose the **Tags** tab. The key is **Name**, and the value is the name you provided.  
+   e. **Launch time:** Can you find when you launched your instance? Choose the **Details** tab and find the **Launch time** field.  
+   f. **Instance state:** Can you verify the state of your instance? It should be **Running**.
 
-14. When prompted, enter:
-    - **Username**: `Administrator`
-    - **Password**: (paste the one you decrypted)
-    
-15. Accept the certificate warning and continue.
+Take a few more minutes to explore the other instance configuration fields. When you're ready, proceed to the next task.
 
-## Task 3: Configure Security Group Rules  
 
-#### Security Groups are used in AWS to control which types of traffic can reach your instance. Think of them as the cloud version of a firewall.
+## Task 4: Terminate your instance
 
-1. From the EC2 Dashboard, click **Security Groups** on the left menu.
+#### In this task, you'll delete your instance to preserve your Free Tier benefits. In EC2, terminate is the term used for deleting an instance.
 
-2. Look for the security group you created earlier and click it.
+1. **Initiate termination:**  
+   If you're still on the instance details page, choose the **Instance state** menu (top right), and then choose **Terminate (delete) instance**.  
+   If you've navigated away, choose **Instances** from the navigation pane. Then, on the **Instances** page, select the checkbox next to the name of your instance, and then choose the **Instance state** menu (top right), and choose **Terminate (delete) instance**.
 
-3. Go to the **Inbound rules** tab. These are the rules that define which traffic is allowed in.
+2. **Confirm termination:**  
+   In the **Terminate (delete) instance** window that opens, choose the **Terminate (delete)** button to confirm that you want to terminate your instance.
 
-4. Click **Edit inbound rules**.
+3. **Monitor instance state:**  
+   On the **Instances** page, check the **Instance state** column. The state of your instance changes to **Shutting-down**. If you don't see the full text, try widening the column.  
+   Once the instance has shut down, Amazon EC2 deletes the instance, and it disappears from the **Instances** page.
 
-5. You should see the following rule already exists:
-   - **Type**: RDP
-   - **Port**: 3389
-   - **Source**: My IP
-
-6. You can add additional rules if needed:
-   - **HTTP**: Allows web traffic (port 80)
-   - **HTTPS**: Allows secure web traffic (port 443)
-
-7. Click **Save rules** to apply changes.
-
-This helps control what kinds of connections can access your instance.
-
-## Task 4: Allocate and Associate an Elastic IP  
-
-#### Normally, if you stop and restart your EC2 instance, it will get a new public IP. To avoid this, you can assign an Elastic IP — a permanent public address.
-
-1. On the EC2 Dashboard, scroll to the left menu and click **Elastic IPs**.
-
-2. Click the **Allocate Elastic IP address** button.
-
-3. Leave the default options and click **Allocate**.
-
-4. Select the new IP address from the list.
-
-5. Click **Associate Elastic IP address**.
-
-6. For **Resource type**, select **Instance**.
-
-7. In the **Instance** dropdown, select your `MyWindowsInstance`.
-
-8. Leave the private IP field as-is and click **Associate**.
-
-Now your instance has a public IP address that will stay the same even after reboots.
-
-## Task 5: Monitor EC2 Performance with CloudWatch  
-
-#### CloudWatch is a monitoring tool in AWS. It allows you to track how your instance is performing and even set alerts if something unusual happens.
-
-1. Go back to the AWS Console home page and search for **CloudWatch**.
-
-2. In the left menu, click **Metrics**.
-
-3. Click **All metrics > EC2 > Per-Instance Metrics**.
-
-4. You'll see performance metrics such as:
-   - **CPUUtilization** – how much the processor is working
-   - **NetworkIn/Out** – the amount of network traffic
-   - **DiskRead/WriteBytes** – disk input/output activity
-
-5. To set up an alert:
-   - Click **Alarms** at the left pane and that click **In alarm**
-   - Click **Create alarm**.
-   - Under **Select metric** click **All metrics > EC2 > Per-Instance Metrics** and than choose a metric like **CPUUtilization**. To finish click **Select metric**. 
-   - Set a condition: e.g., greater than **80** for 5 minutes
-   - Click Next
-   - Create a new notification by clicking at **Create new topic** and than type `MyTopic` for the **Name** and your Email address for **Email endpoints that will receive the notification**. To finish click **Create Topic**. 
-   - Name your alarm (e.g., `HighCPUAlert`) and click **Create alarm**
-
-This allows you to be notified when your instance is under heavy load.
 
 ## ✅ End of Lab  
 
 #### 🎉 Congratulations! You’ve completed the AWS EC2 Lab.
-
-You’ve just built and managed your first cloud-based Windows server!
